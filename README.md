@@ -1,6 +1,8 @@
 # Bobjari_frontend
 
 #Pakages
+dependencies 설치 :
+`yarn install`
 
 1. styled-components  
    : `yarn add styled-components`  

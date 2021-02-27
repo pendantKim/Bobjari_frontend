@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import AppLoading from "expo-app-loading";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import { StyleSheet, Text, View } from "react-native";
-
 import TabNavigation from "./navigation/TabNavigation";
+import Guide from "./screens/Auth/Guide";
 
 export default function App() {
     const [loaded, setLoaded] = useState(false);
