@@ -12,12 +12,11 @@ export default () => {
 };
 
 const Container = styled.View`
-    background: #fff;
-    width: ${constants.width - 50}px;
+    width: ${constants.width / 1.1}px;
     height: ${constants.height / 5}px;
     border-radius: 10px;
-    border-right-width: 5px;
-    border-bottom-width: 5px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
     align-items: center;
     justify-content: center;
     margin: 10px;

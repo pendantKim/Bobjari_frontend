@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text, View } from "react-native";
+import { Platform, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,6 +7,7 @@ import Home from "../screens/Home";
 import Search from "../screens/Search";
 import MyProfile from "../screens/MyProfile";
 import Chat from "../screens/Chat";
+import pointColor from "../constants";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,34 +16,34 @@ export default function TabNavigation() {
         <NavigationContainer>
             <Tab.Navigator
                 screenOptions={({ route }) => ({
-                    tabBarIcon: ({ focused, color, size }) => {
-                        let iconName;
+                    tabBarIcon: ({ focused }) => {
+                        let iconName = Platform.OS === "ios" ? "ios-" : "md-";
 
                         if (route.name === "홈") {
-                            iconName = focused ? "ios-home" : "ios-home";
+                            iconName += "home";
                         } else if (route.name === "검색") {
-                            iconName = focused ? "ios-search" : "ios-search";
+                            iconName += "search";
                         } else if (route.name === "채팅") {
-                            iconName = focused
-                                ? "ios-chatbubbles"
-                                : "ios-chatbubbles";
+                            iconName += "chatbubbles";
                         } else if (route.name === "내 프로필") {
-                            iconName = focused ? "ios-person" : "ios-person";
+                            iconName += "person";
                         }
 
                         // You can return any component that you like here!
                         return (
                             <Ionicons
                                 name={iconName}
-                                size={size}
-                                color={color}
+                                size={20}
+                                color={focused ? `${pointColor}` : "grey"}
                             />
                         );
                     },
                 })}
                 tabBarOptions={{
-                    activeTintColor: "#FF6F61",
-                    inactiveTintColor: "gray",
+                    showLabel: false,
+                    style: {
+                        backgroundColor: "white",
+                    },
                 }}
             >
                 <Tab.Screen name="홈" component={Home} />
