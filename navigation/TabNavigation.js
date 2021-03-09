@@ -33,8 +33,8 @@ export default function TabNavigation() {
                         return (
                             <Ionicons
                                 name={iconName}
-                                size={20}
-                                color={focused ? `${pointColor}` : "grey"}
+                                size={25}
+                                color={focused ? "#FF6F61" : "grey"}
                             />
                         );
                     },
